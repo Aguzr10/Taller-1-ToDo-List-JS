@@ -1,17 +1,14 @@
 /* Paleta de colores del proyecto - modo oscuro con acentos blaugranas */
 :root {
-    --fondo: #0b0f1a;
-    --tarjeta: #141929;
-    --tarea-bg: #1a2035;
-    --tarea-hover: #1f2844;
-    --texto-principal: #e8eaf0;
-    --texto-secundario: #8892a4;
+    --fondo: #111827;
+    --tarjeta: #1f2937;
+    --texto-principal: #f3f4f6;
+    --texto-secundario: #9ca3af;
     --primario: #2779d4;
     --primario-hover: #1d6bc0;
     --acento: #c41f4a;
     --acento-hover: #a01538;
-    --borde: #232d45;
-    --completada-bg: #0f1626;
+    --borde: #374151;
 }
 
 /* Reseteo de márgenes y paddings por defecto */
@@ -74,7 +71,7 @@ body {
     outline: none;
     transition: border-color 0.2s;
     font-family: 'Inter', sans-serif;
-    background-color: var(--fondo);
+    background-color: #111827;
     color: var(--texto-principal);
 }
 
@@ -164,15 +161,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.9rem 1rem;
-    background-color: var(--tarea-bg);
+    background-color: #283548;
     border: 1.5px solid var(--borde);
     border-radius: 9px;
     transition: all 0.2s ease;
 }
 
 .tarea:hover {
-    border-color: #2d3a5e;
-    background-color: var(--tarea-hover);
+    background-color: #2e3d52;
+    border-color: #4b5f7a;
 }
 
 /* Agrupar el checkbox y el texto de la tarea */
@@ -200,7 +197,7 @@ body {
     border-radius: 4px;
     display: inline-block;
     position: relative;
-    background: var(--fondo);
+    background: #111827;
     transition: all 0.2s;
 }
 
@@ -231,7 +228,7 @@ body {
 
 /* Estilos para cuando la tarea está terminada */
 .tarea.completada {
-    background-color: var(--completada-bg);
+    background-color: #1e2d3d;
     border-color: var(--borde);
 }
 
