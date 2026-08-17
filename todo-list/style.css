@@ -11,12 +11,14 @@
     --borde: #e5e7eb;
 }
 
+/* Reseteo de márgenes y paddings por defecto */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Estilos generales de la página */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--fondo);
@@ -38,6 +40,7 @@ body {
     height: fit-content;
 }
 
+/* Centrar y espaciar el título principal */
 .cabecera {
     text-align: center;
     margin-bottom: 2rem;
@@ -55,6 +58,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* Caja de texto donde escribimos la tarea */
 #input-tarea {
     flex-grow: 1;
     padding: 0.75rem 1rem;
@@ -69,6 +73,7 @@ body {
     border-color: var(--primario);
 }
 
+/* Botón de agregar tarea */
 .btn-agregar {
     background-color: var(--primario);
     color: white;
@@ -101,6 +106,7 @@ body {
     gap: 0.75rem;
 }
 
+/* Diseño de cada tarea individual */
 .tarea {
     display: flex;
     justify-content: space-between;
@@ -116,6 +122,7 @@ body {
     background-color: #f3f4f6;
 }
 
+/* Agrupar el checkbox y el texto de la tarea */
 .checkbox-container {
     display: flex;
     align-items: center;
@@ -135,7 +142,7 @@ body {
     transition: color 0.2s, text-decoration 0.2s;
 }
 
-/* Clase asignada dinámicamente al completar una tarea */
+/* Estilos para cuando la tarea está terminada */
 .tarea.completada .texto-tarea {
     color: var(--texto-secundario);
     text-decoration: line-through;
@@ -154,6 +161,7 @@ body {
     opacity: 0; 
 }
 
+/* Mostrar el botón de eliminar al pasar el mouse */
 .tarea:hover .btn-eliminar {
     opacity: 1;
 }
@@ -161,11 +169,4 @@ body {
 .btn-eliminar:hover {
     background-color: var(--peligro);
     color: white;
-}
-
-/* Mostrar el botón de eliminar siempre en dispositivos móviles */
-@media (max-width: 768px) {
-    .btn-eliminar {
-        opacity: 1;
-    }
 }
