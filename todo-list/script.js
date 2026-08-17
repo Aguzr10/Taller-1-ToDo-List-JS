@@ -125,3 +125,6 @@ listaTareas.addEventListener('click', (evento) => {
     guardarTareas();
     pintarTareas();
 });
+
+// Arrancamos la aplicación
+cargarTareas();
