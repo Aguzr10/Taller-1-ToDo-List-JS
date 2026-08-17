@@ -44,23 +44,24 @@ function pintarTareas() {
     contador.textContent = `${tareasCompletas} de ${tareas.length} completadas`;
 
     // Pasamos por cada tarea y armamos su cajita HTML
-    tareas.forEach(tarea => {
+    // Usamos destructuring para extraer las propiedades del objeto tarea
+    tareas.forEach(({ id, texto, completada }) => {
         const li = document.createElement('li');
         // Si está completada le ponemos la clase para que se vea tachada
-        li.className = `tarea ${tarea.completada ? 'completada' : ''}`;
-        li.dataset.id = tarea.id; // Guardamos el ID para saber cuál es cuál luego
+        li.className = `tarea ${completada ? 'completada' : ''}`;
+        li.dataset.id = id; // Guardamos el ID para saber cuál es cuál luego
 
         // Metemos el HTML base (usamos template literals)
         li.innerHTML = `
             <label class="checkbox-container">
-                <input type="checkbox" class="toggle-tarea" ${tarea.completada ? 'checked' : ''}>
+                <input type="checkbox" class="toggle-tarea" ${completada ? 'checked' : ''}>
                 <span class="texto-tarea"></span>
             </label>
             <button class="btn-eliminar">Eliminar</button>
         `;
 
         // Usamos textContent para evitar que se ejecute código HTML o JS por error (XSS)
-        li.querySelector('.texto-tarea').textContent = tarea.texto;
+        li.querySelector('.texto-tarea').textContent = texto;
 
         listaTareas.appendChild(li);
     });
