@@ -65,3 +65,30 @@ function pintarTareas() {
         listaTareas.appendChild(li);
     });
 }
+
+// Escuchamos cuando se envía el formulario
+formTarea.addEventListener('submit', (evento) => {
+    evento.preventDefault(); // Evita que la página recargue sola
+    
+    const texto = inputTarea.value.trim();
+    
+    // Validamos que no metan tareas vacías
+    if (!texto) {
+        alert('Por favor escribe una tarea válida');
+        return;
+    }
+
+    const nuevaTarea = {
+        id: Date.now().toString(), // Generamos un ID usando la fecha
+        texto: texto,
+        completada: false
+    };
+
+    // Usamos Spread (...) para meter la tarea nueva sin dañar el arreglo original
+    tareas = [...tareas, nuevaTarea];
+    
+    inputTarea.value = ''; // Limpiamos la caja
+    
+    guardarTareas();
+    pintarTareas();
+});
