@@ -6,6 +6,7 @@ const inputTarea = document.getElementById('input-tarea');
 const formTarea = document.getElementById('form-tarea');
 const listaTareas = document.getElementById('lista-tareas');
 const contador = document.getElementById('contador');
+const btnBorrarCompletadas = document.getElementById('btn-borrar-completadas');
 
 // Función para guardar en el disco (localStorage)
 function guardarTareas() {
@@ -129,3 +130,11 @@ listaTareas.addEventListener('click', (evento) => {
 
 // Arrancamos la aplicación
 cargarTareas();
+
+// Extra: borra de un solo todas las tareas que ya están completadas
+btnBorrarCompletadas.addEventListener('click', () => {
+    // Filter deja solo las que NO están completadas
+    tareas = tareas.filter(t => !t.completada);
+    guardarTareas();
+    pintarTareas();
+});

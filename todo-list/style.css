@@ -95,7 +95,27 @@ body {
     margin-bottom: 1rem;
     font-size: 0.9rem;
     color: var(--texto-secundario);
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botón extra para eliminar todas las tareas terminadas */
+.btn-borrar-completadas {
+    background-color: transparent;
+    color: var(--texto-secundario);
+    border: 1px solid var(--borde);
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-borrar-completadas:hover {
+    background-color: var(--peligro);
+    color: white;
+    border-color: var(--peligro);
 }
 
 /* Configuración del contenedor de la lista */
