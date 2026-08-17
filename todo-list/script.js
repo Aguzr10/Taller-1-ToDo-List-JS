@@ -134,7 +134,7 @@ listaTareas.addEventListener('click', (evento) => {
 // Arrancamos la aplicación
 cargarTareas();
 
-// Elimina todas las tareas marcadas como completadas
+// Bono: elimina todas las tareas marcadas como completadas
 btnBorrarCompletadas.addEventListener('click', () => {
     // Filter deja solo las que NO están completadas
     tareas = tareas.filter(t => !t.completada);
