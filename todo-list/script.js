@@ -7,6 +7,7 @@ const formTarea = document.getElementById('form-tarea');
 const listaTareas = document.getElementById('lista-tareas');
 const contador = document.getElementById('contador');
 const btnBorrarCompletadas = document.getElementById('btn-borrar-completadas');
+const barraProgreso = document.getElementById('barra-progreso');
 
 // Función para guardar en el disco (localStorage)
 function guardarTareas() {
@@ -41,8 +42,10 @@ function pintarTareas() {
         return tarea.completada ? acumulador + 1 : acumulador;
     }, 0);
     
-    // Actualizamos el texto
+    // Actualizamos el texto y la barra de progreso
     contador.textContent = `${tareasCompletas} de ${tareas.length} completadas`;
+    const porcentaje = tareas.length === 0 ? 0 : (tareasCompletas / tareas.length) * 100;
+    barraProgreso.style.width = `${porcentaje}%`;
 
     // Recorremos el arreglo con destructuring para sacar id, texto y completada
     tareas.forEach(({ id, texto, completada }) => {
@@ -55,6 +58,7 @@ function pintarTareas() {
         li.innerHTML = `
             <label class="checkbox-container">
                 <input type="checkbox" class="toggle-tarea" ${completada ? 'checked' : ''}>
+                <span class="check-visual"></span>
                 <span class="texto-tarea"></span>
             </label>
             <button class="btn-eliminar">Eliminar</button>
