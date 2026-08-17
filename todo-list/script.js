@@ -92,3 +92,36 @@ formTarea.addEventListener('submit', (evento) => {
     guardarTareas();
     pintarTareas();
 });
+
+// Delegación de eventos: ponemos un solo 'chismoso' en toda la lista
+listaTareas.addEventListener('click', (evento) => {
+    const clickEnBotonEliminar = evento.target.classList.contains('btn-eliminar');
+    const clickEnCheckbox = evento.target.classList.contains('toggle-tarea');
+    
+    // Si no le dio a nada que importe, salimos
+    if (!clickEnBotonEliminar && !clickEnCheckbox) {
+        return; 
+    }
+
+    // Buscamos a qué <li> pertenece el click
+    const li = evento.target.closest('li');
+    const id = li.dataset.id;
+
+    if (clickEnBotonEliminar) {
+        // Filter deja pasar todas las que NO tengan este ID (o sea, borra la actual)
+        tareas = tareas.filter(t => t.id !== id);
+    } 
+    
+    if (clickEnCheckbox) {
+        // Map pasa por todas, si encuentra el ID le voltea el estado de completado
+        tareas = tareas.map(t => {
+            if (t.id === id) {
+                return { ...t, completada: !t.completada };
+            }
+            return t;
+        });
+    }
+
+    guardarTareas();
+    pintarTareas();
+});
