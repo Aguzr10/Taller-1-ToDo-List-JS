@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuente moderna para darle un toque limpio -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="contenedor">
+        <header class="cabecera">
+            <h1>Mis Tareas</h1>
+        </header>
+
+        <form id="form-tarea" class="formulario">
+            <input 
+                type="text" 
+                id="input-tarea" 
+                placeholder="Escribe una tarea..." 
+                autocomplete="off"
+            >
+            <button type="submit" class="btn-agregar">Agregar</button>
+        </form>
+
+        <div class="info">
+            <p id="contador">0 de 0 completadas</p>
+        </div>
+
+        <ul id="lista-tareas" class="lista">
+            <!-- Aquí se insertan las tareas desde JavaScript -->
+        </ul>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
