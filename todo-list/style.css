@@ -1,15 +1,17 @@
-/* Paleta de colores del proyecto */
+/* Paleta de colores del proyecto - modo oscuro con acentos blaugranas */
 :root {
-    --fondo: #f0f2f7;
-    --tarjeta: #ffffff;
-    --texto-principal: #1a1f36;
-    --texto-secundario: #6b7280;
-    --primario: #1a5fa8;
-    --primario-hover: #144e8c;
-    --acento: #9b1235;
-    --acento-hover: #7d0e2a;
-    --borde: #dde1ec;
-    --completada-bg: #f5f7ff;
+    --fondo: #0b0f1a;
+    --tarjeta: #141929;
+    --tarea-bg: #1a2035;
+    --tarea-hover: #1f2844;
+    --texto-principal: #e8eaf0;
+    --texto-secundario: #8892a4;
+    --primario: #2779d4;
+    --primario-hover: #1d6bc0;
+    --acento: #c41f4a;
+    --acento-hover: #a01538;
+    --borde: #232d45;
+    --completada-bg: #0f1626;
 }
 
 /* Reseteo de márgenes y paddings por defecto */
@@ -36,7 +38,7 @@ body {
     width: 100%;
     max-width: 460px;
     border-radius: 14px;
-    box-shadow: 0 6px 24px rgba(26, 95, 168, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     padding: 2rem;
     height: fit-content;
     border-top: 4px solid var(--primario);
@@ -72,6 +74,12 @@ body {
     outline: none;
     transition: border-color 0.2s;
     font-family: 'Inter', sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto-principal);
+}
+
+#input-tarea::placeholder {
+    color: var(--texto-secundario);
 }
 
 #input-tarea:focus {
@@ -98,7 +106,7 @@ body {
 
 /* Estilos del contador de progreso */
 .info {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     font-size: 0.85rem;
     color: var(--texto-secundario);
     display: flex;
@@ -156,15 +164,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.9rem 1rem;
-    background-color: #f8f9fc;
+    background-color: var(--tarea-bg);
     border: 1.5px solid var(--borde);
     border-radius: 9px;
     transition: all 0.2s ease;
 }
 
 .tarea:hover {
-    border-color: #c2ccdf;
-    background-color: #f3f5fb;
+    border-color: #2d3a5e;
+    background-color: var(--tarea-hover);
 }
 
 /* Agrupar el checkbox y el texto de la tarea */
@@ -192,7 +200,7 @@ body {
     border-radius: 4px;
     display: inline-block;
     position: relative;
-    background: white;
+    background: var(--fondo);
     transition: all 0.2s;
 }
 
@@ -224,7 +232,7 @@ body {
 /* Estilos para cuando la tarea está terminada */
 .tarea.completada {
     background-color: var(--completada-bg);
-    border-color: #d6daf0;
+    border-color: var(--borde);
 }
 
 .tarea.completada .texto-tarea {
