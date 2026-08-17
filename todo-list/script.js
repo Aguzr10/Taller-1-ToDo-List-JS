@@ -44,8 +44,7 @@ function pintarTareas() {
     // Actualizamos el texto
     contador.textContent = `${tareasCompletas} de ${tareas.length} completadas`;
 
-    // Pasamos por cada tarea y armamos su cajita HTML
-    // Usamos destructuring para extraer las propiedades del objeto tarea
+    // Recorremos el arreglo con destructuring para sacar id, texto y completada
     tareas.forEach(({ id, texto, completada }) => {
         const li = document.createElement('li');
         // Si está completada le ponemos la clase para que se vea tachada
@@ -61,7 +60,7 @@ function pintarTareas() {
             <button class="btn-eliminar">Eliminar</button>
         `;
 
-        // Usamos textContent para evitar que se ejecute código HTML o JS por error (XSS)
+        // textContent para evitar XSS
         li.querySelector('.texto-tarea').textContent = texto;
 
         listaTareas.appendChild(li);
@@ -86,7 +85,7 @@ formTarea.addEventListener('submit', (evento) => {
         completada: false
     };
 
-    // Usamos Spread (...) para meter la tarea nueva sin dañar el arreglo original
+    // Spread para agregar sin mutar el arreglo original
     tareas = [...tareas, nuevaTarea];
     
     inputTarea.value = ''; // Limpiamos la caja
