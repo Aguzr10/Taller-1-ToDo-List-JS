@@ -1,14 +1,15 @@
 /* Paleta de colores del proyecto */
 :root {
-    --fondo: #f3f4f6;
+    --fondo: #f0f2f7;
     --tarjeta: #ffffff;
-    --texto-principal: #1f2937;
+    --texto-principal: #1a1f36;
     --texto-secundario: #6b7280;
-    --primario: #3b82f6;
-    --primario-hover: #2563eb;
-    --peligro: #ef4444;
-    --peligro-hover: #dc2626;
-    --borde: #e5e7eb;
+    --primario: #1a5fa8;
+    --primario-hover: #144e8c;
+    --acento: #9b1235;
+    --acento-hover: #7d0e2a;
+    --borde: #dde1ec;
+    --completada-bg: #f5f7ff;
 }
 
 /* Reseteo de márgenes y paddings por defecto */
@@ -33,11 +34,12 @@ body {
 .contenedor {
     background-color: var(--tarjeta);
     width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    max-width: 460px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(26, 95, 168, 0.1);
     padding: 2rem;
     height: fit-content;
+    border-top: 4px solid var(--primario);
 }
 
 /* Centrar y espaciar el título principal */
@@ -47,8 +49,10 @@ body {
 }
 
 .cabecera h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
+    color: var(--primario);
+    letter-spacing: -0.5px;
 }
 
 /* Estilos del formulario para nuevas tareas */
@@ -62,11 +66,12 @@ body {
 #input-tarea {
     flex-grow: 1;
     padding: 0.75rem 1rem;
-    border: 1px solid var(--borde);
+    border: 1.5px solid var(--borde);
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.2s;
+    font-family: 'Inter', sans-serif;
 }
 
 #input-tarea:focus {
@@ -84,6 +89,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-agregar:hover {
@@ -93,7 +99,7 @@ body {
 /* Estilos del contador de progreso */
 .info {
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--texto-secundario);
     display: flex;
     justify-content: space-between;
@@ -110,12 +116,13 @@ body {
     font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-borrar-completadas:hover {
-    background-color: var(--peligro);
+    background-color: var(--acento);
     color: white;
-    border-color: var(--peligro);
+    border-color: var(--acento);
 }
 
 /* Configuración del contenedor de la lista */
@@ -123,7 +130,7 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.65rem;
 }
 
 /* Diseño de cada tarea individual */
@@ -131,15 +138,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #f9fafb;
-    border: 1px solid var(--borde);
-    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    background-color: #f8f9fc;
+    border: 1.5px solid var(--borde);
+    border-radius: 9px;
     transition: all 0.2s ease;
 }
 
 .tarea:hover {
-    background-color: #f3f4f6;
+    border-color: #c2ccdf;
+    background-color: #f3f5fb;
 }
 
 /* Agrupar el checkbox y el texto de la tarea */
@@ -155,6 +163,7 @@ body {
     cursor: pointer;
     width: 1.1rem;
     height: 1.1rem;
+    accent-color: var(--primario);
 }
 
 .texto-tarea {
@@ -163,6 +172,11 @@ body {
 }
 
 /* Estilos para cuando la tarea está terminada */
+.tarea.completada {
+    background-color: var(--completada-bg);
+    border-color: #d6daf0;
+}
+
 .tarea.completada .texto-tarea {
     color: var(--texto-secundario);
     text-decoration: line-through;
@@ -171,14 +185,15 @@ body {
 /* Botón de eliminar (oculto por defecto) */
 .btn-eliminar {
     background-color: transparent;
-    color: var(--peligro);
-    border: 1px solid var(--peligro);
-    padding: 0.4rem 0.75rem;
+    color: var(--acento);
+    border: 1px solid var(--acento);
+    padding: 0.35rem 0.7rem;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     cursor: pointer;
     transition: all 0.2s;
-    opacity: 0; 
+    opacity: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 /* Mostrar el botón de eliminar al pasar el mouse */
@@ -187,6 +202,6 @@ body {
 }
 
 .btn-eliminar:hover {
-    background-color: var(--peligro);
+    background-color: var(--acento);
     color: white;
 }
